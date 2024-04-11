@@ -6,7 +6,49 @@
     <title>MathJS</title>
   </head>
   <body>
-    <h1>MathJS</h1>
+    <header>
+      <h1>MathJS</h1>
+      <h2>Aplikacja do nauki podstawowych działań matematycznych</h2>
+    </header>
+
+    <div id="operations">
+      <h3>Jakie działania chcesz ćwiczyć?</h3>
+
+      <input type="checkbox" name="operations" id="add" />
+      <label for="add">Dodawanie</label>
+      <input type="checkbox" name="operations" id="sub" />
+      <label for="sub">Odejmowanie</label>
+      <input type="checkbox" name="operations" id="mult" />
+      <label for="mult">Mnożenie</label>
+      <input type="checkbox" name="operations" id="divi" />
+      <label for="divi">Dzielenie</label>
+      <br />
+      <br />
+      <button id="btn1">Dalej</button>
+    </div>
+
+    <div id="numbers">
+      <h3>W jakim zakresie liczb mają być zadania?</h3>
+
+      <input type="radio" name="numbers" id="n10" />
+      <label for="add">10</label>
+      <input type="radio" name="numbers" id="n100" />
+      <label for="sub">100</label>
+      <input type="radio" name="numbers" id="n1000" />
+      <label for="mult">1000</label>
+      <input type="radio" name="numbers" id="n10000" />
+      <label for="divi">10000</label>
+      <br />
+      <br />
+      <button id="btn2">Dalej</button>
+    </div>
+
+    <div id="exercise">
+      <h3>Wpisz wynik poniższego działania:</h3>
+      <p id="task"></p>
+      <button id="btn3">Sprawdź</button>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
