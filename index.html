@@ -12,7 +12,7 @@
       <h2>Aplikacja do nauki podstawowych działań matematycznych</h2>
     </header>
 
-    <div id="operations">
+    <div id="operations-div">
       <h3>Jakie działania chcesz ćwiczyć?</h3>
 
       <input type="checkbox" name="operations" id="add" />
@@ -23,12 +23,12 @@
       <label for="mult">Mnożenie</label>
       <input type="checkbox" name="operations" id="divi" />
       <label for="divi">Dzielenie</label>
-      <br />
+      <p id="noOperation"></p>
       <br />
       <button id="btn1">Dalej</button>
     </div>
 
-    <div id="numbers">
+    <div id="numbers-div" class="hidden">
       <h3>W jakim zakresie liczb mają być zadania?</h3>
 
       <input type="radio" name="numbers" id="n10" />
@@ -39,14 +39,16 @@
       <label for="mult">1000</label>
       <input type="radio" name="numbers" id="n10000" />
       <label for="divi">10000</label>
-      <br />
+      <p id="no-number"></p>
       <br />
       <button id="btn2">Dalej</button>
     </div>
 
-    <div id="exercise">
+    <div id="exercise-div" class="hidden">
       <h3>Wpisz wynik poniższego działania:</h3>
-      <p id="task"></p>
+      <p id="task">2 + 2 =</p>
+      <input type="number" name="" id="user-answer" />
+      <p id="feedback"></p>
       <button id="btn3">Sprawdź</button>
     </div>
 

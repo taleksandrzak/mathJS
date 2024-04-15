@@ -15,6 +15,14 @@ const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
 const task = document.getElementById("task");
 
+const userAnswer = document.getElementById("user-answer");
+const feedback = document.getElementById("feedback");
+const noOperation = document.getElementById("noOperation");
+const operationsDiv = document.getElementById("operations-div");
+const numbersDiv = document.getElementById("numbers-div");
+const exerciseDiv = document.getElementById("exercise-div");
+const noNumber = document.getElementById("no-number");
+
 const randNumb = function (n) {
   console.log(Math.trunc(Math.random() * n) + 1);
 };
@@ -38,25 +46,43 @@ const OPMAP = {
 btn1.addEventListener("click", (e) => {
   e.preventDefault();
   const checkedOperators = choosenOperatorsBox.map((box) => box.checked);
+  if (!checkedOperators.includes(true)) {
+    noOperation.textContent = "Wybierz przynajmniej jedno działanie!";
+    return;
+  }
   checkedOperators.forEach((box, i) => {
     if (box) {
       choosenOperators.push(allOperators[i]);
     }
   });
   m = choosenOperators.length;
+  operationsDiv.classList.add("hidden");
+  numbersDiv.classList.remove("hidden");
 });
 
 btn2.addEventListener("click", (e) => {
   e.preventDefault();
+
   const choosenRange = choosenRangeRad.forEach((rad) => {
     if (rad.checked) {
       n = Number(rad.id.slice(1));
     }
   });
+
+  if (!n) {
+    noNumber.textContent = "Wybierz jeden zakres liczb!";
+    return;
+  }
+
+  numbersDiv.classList.add("hidden");
+  exerciseDiv.classList.remove("hidden");
+  const n1 = randNumb(n);
 });
 
 btn3.addEventListener("click", () => {
-  console.log(choosenOperators);
-  console.log(n);
-  console.log(m);
+  if (Number(userAnswer.value) === 4) {
+    feedback.textContent = "OK";
+  } else {
+    feedback.textContent = "Źle";
+  }
 });
