@@ -13,6 +13,7 @@ const choosenRangeRad = [n10Rad, n100Rad, n1000Rad, n10000Rad];
 const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
+const btn4 = document.getElementById("btn4");
 const task = document.getElementById("task");
 
 const userAnswer = document.getElementById("user-answer");
@@ -24,13 +25,13 @@ const exerciseDiv = document.getElementById("exercise-div");
 const noNumber = document.getElementById("no-number");
 
 const randNumb = function (n) {
-  console.log(Math.trunc(Math.random() * n) + 1);
+  return Math.trunc(Math.random() * n) + 1;
 };
 const randOpert = function (m) {
   return Math.trunc(Math.random() * m);
 };
 
-let n, m;
+let n, m, operatorIndex, n1, n2;
 
 const choosenOperators = [];
 
@@ -76,13 +77,34 @@ btn2.addEventListener("click", (e) => {
 
   numbersDiv.classList.add("hidden");
   exerciseDiv.classList.remove("hidden");
-  const n1 = randNumb(n);
+  n1 = randNumb(n);
+  n2 = randNumb(n);
+  operatorIndex = randOpert(m);
+  task.textContent = `${n1} ${choosenOperators[operatorIndex]}  ${n2}`;
 });
 
 btn3.addEventListener("click", () => {
-  if (Number(userAnswer.value) === 4) {
+  if (
+    Number(userAnswer.value) === OPMAP[choosenOperators[operatorIndex]](n1, n2)
+  ) {
     feedback.textContent = "OK";
+    btn3.classList.add("hidden");
+    btn4.classList.remove("hidden");
   } else {
     feedback.textContent = "Źle";
+    userAnswer.value = "";
+    userAnswer.focus();
   }
+});
+
+btn4.addEventListener("click", () => {
+  feedback.textContent = "";
+  userAnswer.value = "";
+  userAnswer.focus();
+  n1 = randNumb(n);
+  n2 = randNumb(n);
+  operatorIndex = randOpert(m);
+  task.textContent = `${n1} ${choosenOperators[operatorIndex]}  ${n2}`;
+  btn3.classList.remove("hidden");
+  btn4.classList.add("hidden");
 });
