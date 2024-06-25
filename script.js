@@ -79,6 +79,10 @@ btn2.addEventListener("click", (e) => {
   exerciseDiv.classList.remove("hidden");
   n1 = randNumb(n);
   n2 = randNumb(n);
+  while (n1 < n2) {
+    n1 = randNumb(n);
+    n2 = randNumb(n);
+  }
   operatorIndex = randOpert(m);
   task.textContent = `${n1} ${choosenOperators[operatorIndex]}  ${n2}`;
 });
@@ -103,6 +107,10 @@ btn4.addEventListener("click", () => {
   userAnswer.focus();
   n1 = randNumb(n);
   n2 = randNumb(n);
+  while (n1 < n2) {
+    n1 = randNumb(n);
+    n2 = randNumb(n);
+  }
   operatorIndex = randOpert(m);
   task.textContent = `${n1} ${choosenOperators[operatorIndex]}  ${n2}`;
   btn3.classList.remove("hidden");
